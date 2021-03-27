@@ -3,8 +3,8 @@ function Blog({ posts }) {
   return (
     <div className={"bg-gradient-to-tl from-green-400 via-pink-500 to-blue-500 "}>
     <ul className={"grid grid-cols-3 gap-4 p-8 max-w-6xl mx-auto"}>
-      {posts.data.map((post) => (
-        <li className={"bg-white shadow-xl p-4"}>
+      {posts.data.map((post,index) => (
+        <li className={"bg-white shadow-xl p-4"} key={'li-'+index}>
           <div className={"flex items-center mb-2"}>
             <div className={"mr-3"}>
               <img className={"w-8 h-8 rounded-full mx-auto"} src={post.owner.picture} />
@@ -17,8 +17,8 @@ function Blog({ posts }) {
           <hr className={"mb-2"}></hr>
           <img className={"mb-1"} src={post.image} />
           <div className={"mb-2"} >
-            {post.tags.map(tag => (
-              <span className={"bg-pink-700 px-2 mr-1 rounded-full text-white text-sm"}>{tag}</span>
+            {post.tags.map((tag,i) => (
+              <span key={"tag-"+i} className={"bg-pink-700 px-2 mr-1 rounded-full text-white text-sm"}>{tag}</span>
             ))}
           </div>
           <div className={""}>{post.text}</div>
